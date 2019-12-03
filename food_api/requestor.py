@@ -259,7 +259,7 @@ def get_attribute_from_upc(
     # Grab the first matching label URI from the list of available measures
     measure_uri = [each_measure["uri"] for each_measure in available_measures if each_measure["label"] == measure]
     if not measure_uri:
-        print(json.dumps(available_measures, indent=4, sort_keys=True))
+        print(pretty_print_response(available_measures)
         raise(KeyError(f"Oh no, something went wrong trying to get that measure '{measure}'! Above are the available measures to choose from for this product"))
     else:
         measure_uri = measure_uri[0]
