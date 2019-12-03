@@ -30,7 +30,7 @@ def pretty_print_response(response) -> str:
     str
     A pretty printed representation of the json response text.
     """
-    return(json.dumps((response if type(response) == dict else json.loads(response.text)), indent=4, sort_keys=True))
+    return(json.dumps((response if type(response) in [dict, list] else json.loads(response.text)), indent=4, sort_keys=True))
 
 
 def response_code_alerting(response: requests.Response, verbose: bool = True) -> None:
@@ -259,7 +259,7 @@ def get_attribute_from_upc(
     # Grab the first matching label URI from the list of available measures
     measure_uri = [each_measure["uri"] for each_measure in available_measures if each_measure["label"] == measure]
     if not measure_uri:
-        print(pretty_print_response(available_measures)
+        print(pretty_print_response(available_measures))
         raise(KeyError(f"Oh no, something went wrong trying to get that measure '{measure}'! Above are the available measures to choose from for this product"))
     else:
         measure_uri = measure_uri[0]
