@@ -6,6 +6,7 @@ bar code for milk (Dean Foods Company REDUCED FAT MILK; NONFAT MILK; VITAMIN A P
 UPC = 041900076610
 
 will show you that 1 gallon is:
+2227 calories
 
 ## How?
 This repositry uses python's requests library in conjunction with the [edamam food database API](https://developer.edamam.com/food-database-api-docs).
